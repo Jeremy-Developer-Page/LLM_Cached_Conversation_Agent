@@ -8,7 +8,8 @@
         "data": {
           "ollama_base_url": "URL base de Ollama",
           "model": "Modelo",
-          "db_filename": "Nombre de archivo de BD (caché)"
+          "db_filename": "Nombre de archivo de BD (caché)",
+          "match_punctuation": "Coincidir puntuación (requerir puntuación exacta al comparar preguntas)"
         }
       }
     }
@@ -20,7 +21,8 @@
         "data": {
           "ollama_base_url": "URL base de Ollama",
           "model": "Modelo",
-          "db_filename": "Nombre de archivo de BD (caché)"
+          "db_filename": "Nombre de archivo de BD (caché)",
+          "match_punctuation": "Coincidir puntuación (requerir puntuación exacta al comparar preguntas)"
         }
       }
     }

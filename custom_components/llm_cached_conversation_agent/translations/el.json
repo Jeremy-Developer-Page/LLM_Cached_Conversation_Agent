@@ -9,6 +9,8 @@
           "ollama_base_url": "Βασικό URL του Ollama",
           "model": "Μοντέλο",
           "db_filename": "Όνομα αρχείου ΒΔ (cache)"
+          ,
+          "match_punctuation": "Συνεπής σημείωση στίξης (απαιτεί ακριβή στίξη κατά τη σύγκριση ερωτήσεων)"
         }
       }
     }
@@ -20,7 +22,8 @@
         "data": {
           "ollama_base_url": "Βασικό URL του Ollama",
           "model": "Μοντέλο",
-          "db_filename": "Όνομα αρχείου ΒΔ (cache)"
+          "db_filename": "Όνομα αρχείου ΒΔ (cache)",
+          "match_punctuation": "Συνεπής σημείωση στίξης (απαιτεί ακριβή στίξη κατά τη σύγκριση ερωτήσεων)"
         }
       }
     }

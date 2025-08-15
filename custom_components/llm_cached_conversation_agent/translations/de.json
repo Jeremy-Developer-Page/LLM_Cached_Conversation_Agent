@@ -9,6 +9,8 @@
           "ollama_base_url": "Ollama Basis-URL",
           "model": "Modell",
           "db_filename": "DB-Dateiname (Cache)"
+          ,
+          "match_punctuation": "Punktuation beachten (exakte Satzzeichen bei Fragen erfordern)"
         }
       }
     }
@@ -20,7 +22,8 @@
         "data": {
           "ollama_base_url": "Ollama Basis-URL",
           "model": "Modell",
-          "db_filename": "DB-Dateiname (Cache)"
+          "db_filename": "DB-Dateiname (Cache)",
+          "match_punctuation": "Punktuation beachten (exakte Satzzeichen bei Fragen erfordern)"
         }
       }
     }

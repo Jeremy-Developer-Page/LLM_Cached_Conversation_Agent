@@ -9,6 +9,8 @@
           "ollama_base_url": "Bazowy URL Ollama",
           "model": "Model",
           "db_filename": "Nazwa pliku bazy danych (cache)"
+           ,
+           "match_punctuation": "Uwzględniaj interpunkcję (wymaga dokładnej interpunkcji przy dopasowywaniu pytań)"
         }
       }
     }
@@ -20,7 +22,8 @@
         "data": {
           "ollama_base_url": "Bazowy URL Ollama",
           "model": "Model",
-          "db_filename": "Nazwa pliku bazy danych (cache)"
+          "db_filename": "Nazwa pliku bazy danych (cache)",
+          "match_punctuation": "Uwzględniaj interpunkcję (wymaga dokładnej interpunkcji przy dopasowywaniu pytań)"
         }
       }
     }

@@ -9,6 +9,8 @@
           "ollama_base_url": "URL de base d'Ollama",
           "model": "Modèle",
           "db_filename": "Nom du fichier BD (cache)"
+          ,
+          "match_punctuation": "Respecter la ponctuation (exiger la ponctuation exacte lors de la recherche)"
         }
       }
     }
@@ -20,7 +22,8 @@
         "data": {
           "ollama_base_url": "URL de base d'Ollama",
           "model": "Modèle",
-          "db_filename": "Nom du fichier BD (cache)"
+          "db_filename": "Nom du fichier BD (cache)",
+          "match_punctuation": "Respecter la ponctuation (exiger la ponctuation exacte lors de la recherche)"
         }
       }
     }

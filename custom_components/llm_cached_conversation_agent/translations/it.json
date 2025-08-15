@@ -8,7 +8,8 @@
         "data": {
           "ollama_base_url": "Base URL di Ollama",
           "model": "Modello",
-          "db_filename": "Nome file DB (cache)"
+          "db_filename": "Nome file DB (cache)",
+          "match_punctuation": "Tieni conto della punteggiatura (richiede punteggiatura esatta per il confronto)"
         }
       }
     }
@@ -20,7 +21,8 @@
         "data": {
           "ollama_base_url": "Base URL di Ollama",
           "model": "Modello",
-          "db_filename": "Nome file DB (cache)"
+          "db_filename": "Nome file DB (cache)",
+          "match_punctuation": "Tieni conto della punteggiatura (richiede punteggiatura esatta per il confronto)"
         }
       }
     }

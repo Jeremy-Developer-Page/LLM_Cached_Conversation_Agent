@@ -103,6 +103,14 @@ Modifica manuale del DB (opzionale):
   - `items`: lista di oggetti `{ q, q_norm, a, ts }`
   - `q_norm` è la chiave di ricerca (testo normalizzato a minuscolo con spazi ripuliti).
 
+  Opzione importante:
+  - `match_punctuation` (booleano, default: true): se impostato a true, la ricerca richiede che la punteggiatura nella domanda corrisponda esattamente al valore memorizzato in `q_norm`; se impostato a false, il confronto ignora la punteggiatura. Nota: il file JSON mantiene sempre la punteggiatura in `q_norm` quando una domanda viene salvata — l'opzione influenza solo il comportamento del confronto al lookup.
+
+  Comportamento al cambio dell'opzione:
+  - Quando viene modificato `match_punctuation`, l'integrazione ora effettua una merge sicura delle voci dal file cache precedentemente attivo nel file variante che diventerà attivo (es. `qa_cache_true.json` ↔ `qa_cache_false.json`) in modo da non perdere voci esistenti.
+  - La merge e la ricarica vengono eseguite sotto un lock I/O interno e entrambi i file variante vengono letti/validati prima della ricarica. Questo evita scritture concorrenti o condizioni di race che potrebbero corrompere o sovrascrivere il file attivo.
+  - Le scritture su disco restano atomiche e ora il codice garantisce che il payload venga scritto esattamente sul file attivo calcolato al momento del salvataggio, evitando sovrascritture accidentali durante cambi di configurazione concorrenti.
+
 Note utili:
 - Se Ollama è su un altro host/container, aggiorna il Base URL di conseguenza e verifica la raggiungibilità di rete.
 - Per un reset rapido della cache, spegni HA, rimuovi `qa_cache.json`, riaccendi: verrà rigenerato.

@@ -107,6 +107,14 @@ Manual DB editing (optional):
   - `items`: list of objects `{ q, q_norm, a, ts }`
   - `q_norm` is the lookup key (lowercased, whitespace-normalized text).
 
+Important option:
+- `match_punctuation` (boolean, default: true): when true, matching requires the punctuation in the question to match exactly the stored `q_norm`; when false, punctuation is ignored for lookup comparisons. Note: the JSON file always preserves punctuation in `q_norm` when a question is saved — the option only affects lookup behaviour.
+
+Behavior when toggling:
+- When you change `match_punctuation`, the integration now safely merges entries from the previously active cache file into the newly active variant (for example, `qa_cache_true.json` ↔ `qa_cache_false.json`) so existing entries are not lost.
+- The merge and reload run under an internal I/O lock and both variant files are validated before being reloaded. This prevents concurrent writes or race conditions that could otherwise corrupt or overwrite the active cache.
+- Disk writes are still atomic, and the code now ensures the payload is written to the exact active file computed at save time, avoiding accidental overwrites during concurrent config changes.
+
 Useful notes:
 - If Ollama runs on another host/container, update the Base URL accordingly and ensure network reachability.
 - To reset the cache quickly: stop HA, remove `qa_cache.json`, start HA again: it will be regenerated.

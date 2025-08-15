@@ -8,7 +8,8 @@
         "data": {
           "ollama_base_url": "Ollama Base URL",
           "model": "Model",
-          "db_filename": "DB filename (cache)"
+          "db_filename": "DB filename (cache)",
+          "match_punctuation": "Match punctuation (require exact punctuation when matching questions)"
         }
       }
     }
@@ -20,7 +21,8 @@
         "data": {
           "ollama_base_url": "Ollama Base URL",
           "model": "Model",
-          "db_filename": "DB filename (cache)"
+          "db_filename": "DB filename (cache)",
+          "match_punctuation": "Match punctuation (require exact punctuation when matching questions)"
         }
       }
     }
