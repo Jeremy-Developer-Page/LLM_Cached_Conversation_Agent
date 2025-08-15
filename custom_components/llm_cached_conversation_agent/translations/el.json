@@ -1,0 +1,28 @@
+{
+  "title": "Πράκτορας Συνομιλίας με Προσωρινή Μνήμη LLM",
+  "config": {
+    "step": {
+      "user": {
+  "title": "Ρύθμιση Πράκτορα με Προσωρινή Μνήμη LLM",
+  "description": "Ρύθμιση backend LLM (Ollama) και αρχείου προσωρινής μνήμης",
+        "data": {
+          "ollama_base_url": "Βασικό URL του Ollama",
+          "model": "Μοντέλο",
+          "db_filename": "Όνομα αρχείου ΒΔ (cache)"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Επιλογές",
+        "data": {
+          "ollama_base_url": "Βασικό URL του Ollama",
+          "model": "Μοντέλο",
+          "db_filename": "Όνομα αρχείου ΒΔ (cache)"
+        }
+      }
+    }
+  }
+}

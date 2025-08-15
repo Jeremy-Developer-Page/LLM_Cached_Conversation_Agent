@@ -1,0 +1,28 @@
+{
+  "title": "Agent de Conversation en Cache LLM",
+  "config": {
+    "step": {
+      "user": {
+  "title": "Configurer l'Agent en Cache LLM",
+  "description": "Configurer le backend LLM (Ollama) et le fichier de cache",
+        "data": {
+          "ollama_base_url": "URL de base d'Ollama",
+          "model": "Modèle",
+          "db_filename": "Nom du fichier BD (cache)"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Options",
+        "data": {
+          "ollama_base_url": "URL de base d'Ollama",
+          "model": "Modèle",
+          "db_filename": "Nom du fichier BD (cache)"
+        }
+      }
+    }
+  }
+}

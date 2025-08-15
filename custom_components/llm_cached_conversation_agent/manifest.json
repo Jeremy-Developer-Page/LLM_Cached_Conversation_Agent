@@ -1,0 +1,15 @@
+{
+  "domain": "llm_cached_conversation_agent",
+  "name": "LLM Cached Conversation Agent",
+  "codeowners": ["@Jeremy-Developer-Page"],
+  "documentation": "https://github.com/Jeremy-Developer-Page/LLM_Cached_Conversation_Agent",
+  "issue_tracker": "https://github.com/Jeremy-Developer-Page/LLM_Cached_Conversation_Agent/issues",
+  "integration_type": "service",
+  "iot_class": "local_push",
+  "version": "1.0",
+  "requirements": [],
+  "config_flow": true,
+  "loggers": [
+    "custom_components.llm_cached_conversation_agent"
+  ]
+}

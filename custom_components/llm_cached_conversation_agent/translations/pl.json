@@ -1,0 +1,28 @@
+{
+  "title": "Buforowany Agent Konwersacyjny LLM",
+  "config": {
+    "step": {
+      "user": {
+  "title": "Skonfiguruj Buforowanego Agenta LLM",
+  "description": "Skonfiguruj backend LLM (Ollama) i plik pamięci podręcznej",
+        "data": {
+          "ollama_base_url": "Bazowy URL Ollama",
+          "model": "Model",
+          "db_filename": "Nazwa pliku bazy danych (cache)"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opcje",
+        "data": {
+          "ollama_base_url": "Bazowy URL Ollama",
+          "model": "Model",
+          "db_filename": "Nazwa pliku bazy danych (cache)"
+        }
+      }
+    }
+  }
+}

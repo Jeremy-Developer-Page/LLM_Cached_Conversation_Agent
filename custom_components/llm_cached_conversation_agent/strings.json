@@ -1,0 +1,28 @@
+{
+  "title": "LLM Cached Conversation Agent",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure LLM Cached Agent",
+        "description": "Set up the LLM backend (Ollama) and cache file",
+        "data": {
+          "ollama_base_url": "Ollama Base URL",
+          "model": "Model",
+          "db_filename": "DB filename (cache)"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Options",
+        "data": {
+          "ollama_base_url": "Ollama Base URL",
+          "model": "Model",
+          "db_filename": "DB filename (cache)"
+        }
+      }
+    }
+  }
+}
