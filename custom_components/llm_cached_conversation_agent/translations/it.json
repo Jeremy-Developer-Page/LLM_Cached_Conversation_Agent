@@ -8,6 +8,12 @@
         "data": {
           "ollama_base_url": "Base URL di Ollama",
           "model": "Modello",
+          "system_prompt": "System prompt (opzionale)",
+          "top_p": "Top-p (nucleus sampling)",
+          "top_k": "Top-k",
+          "repeat_penalty": "Penalità ripetizione",
+          "min_p": "Min-p",
+          "seed": "Seed (-1=casuale)",
           "db_filename": "Nome file DB (cache)",
           "match_punctuation": "Tieni conto della punteggiatura (richiede punteggiatura esatta per il confronto)"
         }
@@ -21,6 +27,12 @@
         "data": {
           "ollama_base_url": "Base URL di Ollama",
           "model": "Modello",
+          "system_prompt": "System prompt (opzionale)",
+          "top_p": "Top-p (nucleus sampling)",
+          "top_k": "Top-k",
+          "repeat_penalty": "Penalità ripetizione",
+          "min_p": "Min-p",
+          "seed": "Seed (-1=casuale)",
           "db_filename": "Nome file DB (cache)",
           "match_punctuation": "Tieni conto della punteggiatura (richiede punteggiatura esatta per il confronto)"
         }

@@ -3,14 +3,19 @@
   "config": {
     "step": {
       "user": {
-  "title": "Configurer l'Agent en Cache LLM",
-  "description": "Configurer le backend LLM (Ollama) et le fichier de cache",
+        "title": "Configurer l'Agent en Cache LLM",
+        "description": "Configurer le backend LLM (Ollama) et le fichier de cache",
         "data": {
           "ollama_base_url": "URL de base d'Ollama",
           "model": "Modèle",
-          "db_filename": "Nom du fichier BD (cache)"
-          ,
-          "match_punctuation": "Respecter la ponctuation (exiger la ponctuation exacte lors de la recherche)"
+          "system_prompt": "Invite système (optionnel)",
+          "top_p": "Top-p (échantillonnage nucleus)",
+          "top_k": "Top-k",
+          "repeat_penalty": "Pénalité de répétition",
+          "min_p": "Min-p",
+          "seed": "Seed (-1=aléatoire)",
+          "db_filename": "Nom du fichier BD (cache)",
+          "match_punctuation": "Respecter la ponctuation (exiger la ponctuation exacte lors de la comparaison des questions)"
         }
       }
     }
@@ -22,8 +27,14 @@
         "data": {
           "ollama_base_url": "URL de base d'Ollama",
           "model": "Modèle",
+          "system_prompt": "Invite système (optionnel)",
+          "top_p": "Top-p (échantillonnage nucleus)",
+          "top_k": "Top-k",
+          "repeat_penalty": "Pénalité de répétition",
+          "min_p": "Min-p",
+          "seed": "Seed (-1=aléatoire)",
           "db_filename": "Nom du fichier BD (cache)",
-          "match_punctuation": "Respecter la ponctuation (exiger la ponctuation exacte lors de la recherche)"
+          "match_punctuation": "Respecter la ponctuation (exiger la ponctuation exacte lors de la comparaison des questions)"
         }
       }
     }

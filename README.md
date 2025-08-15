@@ -3,7 +3,7 @@
 </p>
 
 # LLM Cached Conversation Agent (Home Assistant)
-Italiano | [English](README.en.md)
+Italiano | [English](README.en.md) | [Changelog](CHANGELOG.md) | [Changelog EN](CHANGELOG.en.md)
 
 Un agente conversazionale per Home Assistant con cache locale su file e fallback LLM (Ollama) per risposte non presenti in cache.
 
@@ -84,6 +84,8 @@ Funzioni principali:
 - Modifica post-configurazione dalla UI (Options Flow) con applicazione a caldo
 - Conversation Agent registrato in Home Assistant (compatibile con Assist)
 - Percorso DB configurabile (di default `qa_cache.json` nella cartella dell’integrazione)
+ - System prompt opzionale (inviato come `system` all'API generate di Ollama)
+ - Opzioni sampling (Ollama, in `options`): `top_p`, `top_k`, `repeat_penalty`, `min_p`, `seed`
 
 Lingue supportate:
 - Conversazione/Assist: tutte le lingue (l’agente dichiara `*` come `supported_languages`)
@@ -106,6 +108,14 @@ Modifica manuale del DB (opzionale):
   Opzione importante:
   - `match_punctuation` (booleano, default: true): se impostato a true, la ricerca richiede che la punteggiatura nella domanda corrisponda esattamente al valore memorizzato in `q_norm`; se impostato a false, il confronto ignora la punteggiatura. Nota: il file JSON mantiene sempre la punteggiatura in `q_norm` quando una domanda viene salvata — l'opzione influenza solo il comportamento del confronto al lookup.
 
+  Parametri LLM (Ollama):
+  - `system_prompt` (stringa, opzionale): istruzione di sistema per guidare lo stile/il contesto del modello
+  - `top_p` (float): nucleus sampling (default 0.9)
+  - `top_k` (int): limita la scelta ai top-k token (default 40)
+  - `repeat_penalty` (float): penalità per ridurre ripetizioni (default 1.1)
+  - `min_p` (float): soglia di probabilità minima (default 0.0)
+  - `seed` (int): seed casuale (-1 = random)
+
   Comportamento al cambio dell'opzione:
   - Quando viene modificato `match_punctuation`, l'integrazione ora effettua una merge sicura delle voci dal file cache precedentemente attivo nel file variante che diventerà attivo (es. `qa_cache_true.json` ↔ `qa_cache_false.json`) in modo da non perdere voci esistenti.
   - La merge e la ricarica vengono eseguite sotto un lock I/O interno e entrambi i file variante vengono letti/validati prima della ricarica. Questo evita scritture concorrenti o condizioni di race che potrebbero corrompere o sovrascrivere il file attivo.
@@ -118,7 +128,7 @@ Note utili:
 
 ## 5) To‑Do (future aggiunte)
 
-- 
+- Integrazione API OpenAI
 
 ---
 

@@ -69,6 +69,12 @@ class LLMCachedAgent(AbstractConversationAgent):
             pass
         self._ollama_url: str = config.get("ollama_base_url", "http://127.0.0.1:11434")
         self._model: str = config.get("model", "llama3")
+        self._system_prompt: str = config.get("system_prompt", "")
+        self._top_p: float = float(config.get("top_p", 0.9))
+        self._top_k: int = int(config.get("top_k", 40))
+        self._repeat_penalty: float = float(config.get("repeat_penalty", 1.1))
+        self._min_p: float = float(config.get("min_p", 0.0))
+        self._seed: int = int(config.get("seed", -1))
         self._io_lock = asyncio.Lock()
 
     @property
@@ -120,6 +126,12 @@ class LLMCachedAgent(AbstractConversationAgent):
         # Otherwise, proceed to update derived fields and potentially change path
         self._ollama_url = config.get("ollama_base_url", self._ollama_url)
         self._model = config.get("model", self._model)
+        self._system_prompt = config.get("system_prompt", self._system_prompt)
+        self._top_p = float(config.get("top_p", self._top_p))
+        self._top_k = int(config.get("top_k", self._top_k))
+        self._repeat_penalty = float(config.get("repeat_penalty", self._repeat_penalty))
+        self._min_p = float(config.get("min_p", self._min_p))
+        self._seed = int(config.get("seed", self._seed))
         new_path_cfg = config.get("db_filename", self._base_cache_path.name)
         new_path = Path(new_path_cfg)
         if not new_path.is_absolute():
@@ -432,9 +444,26 @@ class LLMCachedAgent(AbstractConversationAgent):
             "prompt": prompt,
             "stream": False,
         }
+        if self._system_prompt:
+            # Ollama's generate API accepts a 'system' field to set a system prompt
+            payload["system"] = self._system_prompt
+        # Optional generation options
+        options: dict[str, Any] = {}
+        options["top_p"] = self._top_p
+        options["top_k"] = self._top_k
+        options["repeat_penalty"] = self._repeat_penalty
+        options["min_p"] = self._min_p
+        if self._seed is not None:
+            options["seed"] = self._seed
+        if options:
+            payload["options"] = options
         try:
             async with aiohttp.ClientSession() as session:
-                async with session.post(url, json=payload, timeout=60) as r:
+                async with session.post(
+                    url,
+                    json=payload,
+                    timeout=aiohttp.ClientTimeout(total=60),
+                ) as r:
                     if r.status != 200:
                         return None
                     data = await r.json()

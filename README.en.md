@@ -3,6 +3,7 @@
 </p>
 
 # LLM Cached Conversation Agent (Home Assistant)
+English | [Italiano](README.md) | [Changelog](CHANGELOG.en.md) | [Changelog IT](CHANGELOG.md)
 
 A conversational agent for Home Assistant with a local file cache and a LLM (Ollama) fallback for answers not found in the cache.
 
@@ -88,6 +89,8 @@ Main features:
 - Post-configuration changes via UI (Options Flow) with hot apply
 - Registers as a Conversation Agent (works with Assist)
 - Configurable DB path (default `qa_cache.json` in the integration folder)
+ - Optional system prompt (sent as `system` to Ollama generate API)
+ - Sampling options (Ollama, via `options`): `top_p`, `top_k`, `repeat_penalty`, `min_p`, `seed`
 
 Supported languages:
 - Conversation/Assist: all languages (agent declares `*` as `supported_languages`)
@@ -110,6 +113,14 @@ Manual DB editing (optional):
 Important option:
 - `match_punctuation` (boolean, default: true): when true, matching requires the punctuation in the question to match exactly the stored `q_norm`; when false, punctuation is ignored for lookup comparisons. Note: the JSON file always preserves punctuation in `q_norm` when a question is saved — the option only affects lookup behaviour.
 
+ LLM parameters (Ollama):
+ - `system_prompt` (string, optional): system instruction to shape style/context
+ - `top_p` (float): nucleus sampling (default 0.9)
+ - `top_k` (int): limit to top-k tokens (default 40)
+ - `repeat_penalty` (float): penalty to reduce repetition (default 1.1)
+ - `min_p` (float): minimal probability threshold (default 0.0)
+ - `seed` (int): random seed (-1 = random)
+
 Behavior when toggling:
 - When you change `match_punctuation`, the integration now safely merges entries from the previously active cache file into the newly active variant (for example, `qa_cache_true.json` ↔ `qa_cache_false.json`) so existing entries are not lost.
 - The merge and reload run under an internal I/O lock and both variant files are validated before being reloaded. This prevents concurrent writes or race conditions that could otherwise corrupt or overwrite the active cache.
@@ -122,7 +133,7 @@ Useful notes:
 
 ## 5) To‑Do (future additions)
 
-- 
+- - OpenAI API integration
 
 ---
 

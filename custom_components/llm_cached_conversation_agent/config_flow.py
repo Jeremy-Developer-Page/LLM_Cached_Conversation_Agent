@@ -29,6 +29,12 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             {
                 vol.Required("ollama_base_url", default="http://127.0.0.1:11434"): str,
                 vol.Required("model", default="llama3"): str,
+                vol.Optional("system_prompt", default=""): str,
+                vol.Optional("top_p", default=0.9): vol.Coerce(float),
+                vol.Optional("top_k", default=40): vol.Coerce(int),
+                vol.Optional("repeat_penalty", default=1.1): vol.Coerce(float),
+                vol.Optional("min_p", default=0.0): vol.Coerce(float),
+                vol.Optional("seed", default=-1): vol.Coerce(int),
                 vol.Optional("db_filename", default="qa_cache.json"): str,
                 vol.Optional("match_punctuation", default=True): bool,
             }
@@ -51,6 +57,12 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             {
                 vol.Required("ollama_base_url", default=data.get("ollama_base_url", "http://127.0.0.1:11434")): str,
                 vol.Required("model", default=data.get("model", "llama3")): str,
+                vol.Optional("system_prompt", default=data.get("system_prompt", "")): str,
+                vol.Optional("top_p", default=data.get("top_p", 0.9)): vol.Coerce(float),
+                vol.Optional("top_k", default=data.get("top_k", 40)): vol.Coerce(int),
+                vol.Optional("repeat_penalty", default=data.get("repeat_penalty", 1.1)): vol.Coerce(float),
+                vol.Optional("min_p", default=data.get("min_p", 0.0)): vol.Coerce(float),
+                vol.Optional("seed", default=data.get("seed", -1)): vol.Coerce(int),
                 vol.Optional("db_filename", default=data.get("db_filename", "qa_cache.json")): str,
                 vol.Optional("match_punctuation", default=data.get("match_punctuation", True)): bool,
             }

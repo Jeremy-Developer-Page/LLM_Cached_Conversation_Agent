@@ -3,14 +3,19 @@
   "config": {
     "step": {
       "user": {
-  "title": "LLM Cached Agent konfigurieren",
-  "description": "LLM-Backend (Ollama) und Cache-Datei einrichten",
+        "title": "LLM Cached Agent konfigurieren",
+        "description": "LLM-Backend (Ollama) und Cache-Datei einrichten",
         "data": {
           "ollama_base_url": "Ollama Basis-URL",
           "model": "Modell",
-          "db_filename": "DB-Dateiname (Cache)"
-          ,
-          "match_punctuation": "Punktuation beachten (exakte Satzzeichen bei Fragen erfordern)"
+          "system_prompt": "System-Prompt (optional)",
+          "top_p": "Top-p (Nucleus Sampling)",
+          "top_k": "Top-k",
+          "repeat_penalty": "Wiederholungsstrafe",
+          "min_p": "Min-p",
+          "seed": "Seed (-1=zufällig)",
+          "db_filename": "DB-Dateiname (Cache)",
+          "match_punctuation": "Interpunktion beachten (exakte Satzzeichen beim Abgleich der Fragen erforderlich)"
         }
       }
     }
@@ -22,8 +27,14 @@
         "data": {
           "ollama_base_url": "Ollama Basis-URL",
           "model": "Modell",
+          "system_prompt": "System-Prompt (optional)",
+          "top_p": "Top-p (Nucleus Sampling)",
+          "top_k": "Top-k",
+          "repeat_penalty": "Wiederholungsstrafe",
+          "min_p": "Min-p",
+          "seed": "Seed (-1=zufällig)",
           "db_filename": "DB-Dateiname (Cache)",
-          "match_punctuation": "Punktuation beachten (exakte Satzzeichen bei Fragen erfordern)"
+          "match_punctuation": "Interpunktion beachten (exakte Satzzeichen beim Abgleich der Fragen erforderlich)"
         }
       }
     }

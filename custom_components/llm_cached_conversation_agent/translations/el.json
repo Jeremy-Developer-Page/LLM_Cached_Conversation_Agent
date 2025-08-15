@@ -3,13 +3,18 @@
   "config": {
     "step": {
       "user": {
-  "title": "Ρύθμιση Πράκτορα με Προσωρινή Μνήμη LLM",
-  "description": "Ρύθμιση backend LLM (Ollama) και αρχείου προσωρινής μνήμης",
+        "title": "Ρύθμιση Πράκτορα με Προσωρινή Μνήμη LLM",
+        "description": "Ρύθμιση backend LLM (Ollama) και αρχείου προσωρινής μνήμης",
         "data": {
           "ollama_base_url": "Βασικό URL του Ollama",
           "model": "Μοντέλο",
-          "db_filename": "Όνομα αρχείου ΒΔ (cache)"
-          ,
+          "system_prompt": "System prompt (προαιρετικό)",
+          "top_p": "Top-p (nucleus sampling)",
+          "top_k": "Top-k",
+          "repeat_penalty": "Ποινή επανάληψης",
+          "min_p": "Min-p",
+          "seed": "Seed (-1=τυχαίο)",
+          "db_filename": "Όνομα αρχείου ΒΔ (cache)",
           "match_punctuation": "Συνεπής σημείωση στίξης (απαιτεί ακριβή στίξη κατά τη σύγκριση ερωτήσεων)"
         }
       }
@@ -22,6 +27,12 @@
         "data": {
           "ollama_base_url": "Βασικό URL του Ollama",
           "model": "Μοντέλο",
+          "system_prompt": "System prompt (προαιρετικό)",
+          "top_p": "Top-p (nucleus sampling)",
+          "top_k": "Top-k",
+          "repeat_penalty": "Ποινή επανάληψης",
+          "min_p": "Min-p",
+          "seed": "Seed (-1=τυχαίο)",
           "db_filename": "Όνομα αρχείου ΒΔ (cache)",
           "match_punctuation": "Συνεπής σημείωση στίξης (απαιτεί ακριβή στίξη κατά τη σύγκριση ερωτήσεων)"
         }
