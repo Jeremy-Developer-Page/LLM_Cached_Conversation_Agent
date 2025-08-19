@@ -37,6 +37,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 vol.Optional("seed", default=-1): vol.Coerce(int),
                 vol.Optional("db_filename", default="qa_cache.json"): str,
                 vol.Optional("match_punctuation", default=True): bool,
+                vol.Optional("include_datetime", default=False): bool,
             }
         )
         return self.async_show_form(step_id="user", data_schema=schema, errors=errors)
@@ -65,6 +66,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 vol.Optional("seed", default=data.get("seed", -1)): vol.Coerce(int),
                 vol.Optional("db_filename", default=data.get("db_filename", "qa_cache.json")): str,
                 vol.Optional("match_punctuation", default=data.get("match_punctuation", True)): bool,
+                vol.Optional("include_datetime", default=data.get("include_datetime", False)): bool,
             }
         )
         return self.async_show_form(step_id="init", data_schema=schema)

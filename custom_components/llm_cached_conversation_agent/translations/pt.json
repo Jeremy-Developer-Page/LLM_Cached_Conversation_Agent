@@ -15,7 +15,8 @@
           "min_p": "Min-p",
           "seed": "Seed (-1=aleatório)",
           "db_filename": "Nome do ficheiro BD (cache)",
-          "match_punctuation": "Considerar pontuação (exigir pontuação exata ao comparar perguntas)"
+          "match_punctuation": "Considerar pontuação (exigir pontuação exata ao comparar perguntas)",
+          "include_datetime": "Incluir data/hora atual no system prompt"
         }
       }
     }
@@ -34,7 +35,8 @@
           "min_p": "Min-p",
           "seed": "Seed (-1=aleatório)",
           "db_filename": "Nome do ficheiro BD (cache)",
-          "match_punctuation": "Considerar pontuação (exigir pontuação exata ao comparar perguntas)"
+          "match_punctuation": "Considerar pontuação (exigir pontuação exata ao comparar perguntas)",
+          "include_datetime": "Incluir data/hora atual no system prompt"
         }
       }
     }

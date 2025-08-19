@@ -86,6 +86,7 @@ Funzioni principali:
 - Percorso DB configurabile (di default `qa_cache.json` nella cartella dell’integrazione)
  - System prompt opzionale (inviato come `system` all'API generate di Ollama)
  - Opzioni sampling (Ollama, in `options`): `top_p`, `top_k`, `repeat_penalty`, `min_p`, `seed`
+ - Toggle `include_datetime`: aggiunge data/ora correnti (fuso di HA) al system prompt
 
 Lingue supportate:
 - Conversazione/Assist: tutte le lingue (l’agente dichiara `*` come `supported_languages`)
@@ -110,6 +111,7 @@ Modifica manuale del DB (opzionale):
 
   Parametri LLM (Ollama):
   - `system_prompt` (stringa, opzionale): istruzione di sistema per guidare lo stile/il contesto del modello
+  - `include_datetime` (booleano): se true, aggiunge data/ora correnti (timezone di HA) al system prompt
   - `top_p` (float): nucleus sampling (default 0.9)
   - `top_k` (int): limita la scelta ai top-k token (default 40)
   - `repeat_penalty` (float): penalità per ridurre ripetizioni (default 1.1)

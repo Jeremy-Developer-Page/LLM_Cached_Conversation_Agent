@@ -1,5 +1,11 @@
 # Changelog (English)
 
+## 1.3 2025/08/19
+New features:
+- New `include_datetime` option: when enabled, the agent appends the current date/time (using Home Assistant's timezone) to the system prompt sent to Ollama. Useful for time-sensitive queries (e.g., “what day is it today?”).
+- UI and translations updated (IT/EN/DE/EL/ES/FR/PL/PT) for the new toggle.
+- Documentation updated in `configuration.md`.
+
 ## 1.2 2025/08/15
 New features:
 - Optional system prompt sent to Ollama (as `system` in the generate API)

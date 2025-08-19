@@ -11,6 +11,7 @@ Options (editable post-setup from the UI):
 - `seed` (int): random seed for generation (-1 means random each time)
 - `db_filename` (string): Cache DB file name, default `qa_cache.json`
 - `match_punctuation` (boolean): If true (default), questions must match punctuation exactly to hit the cache. If false, punctuation is ignored and alternate forms are added as aliases.
+- `include_datetime` (boolean): If true, the current date/time (using Home Assistant's timezone) is appended to the system prompt sent to the LLM. Default `false`.
 
 Data persistence:
 - If `db_filename` is a relative path, it will be stored in the integration folder (`config/custom_components/llm_cached_conversation_agent/`).

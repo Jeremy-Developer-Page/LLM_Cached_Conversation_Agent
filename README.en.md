@@ -91,6 +91,7 @@ Main features:
 - Configurable DB path (default `qa_cache.json` in the integration folder)
  - Optional system prompt (sent as `system` to Ollama generate API)
  - Sampling options (Ollama, via `options`): `top_p`, `top_k`, `repeat_penalty`, `min_p`, `seed`
+ - `include_datetime` toggle: appends current date/time (HA timezone) to the system prompt
 
 Supported languages:
 - Conversation/Assist: all languages (agent declares `*` as `supported_languages`)
@@ -115,6 +116,7 @@ Important option:
 
  LLM parameters (Ollama):
  - `system_prompt` (string, optional): system instruction to shape style/context
+ - `include_datetime` (boolean): when true, appends current date/time (HA timezone) to the system prompt
  - `top_p` (float): nucleus sampling (default 0.9)
  - `top_k` (int): limit to top-k tokens (default 40)
  - `repeat_penalty` (float): penalty to reduce repetition (default 1.1)

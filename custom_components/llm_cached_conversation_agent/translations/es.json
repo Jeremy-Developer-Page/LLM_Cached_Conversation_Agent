@@ -16,7 +16,8 @@
           "seed": "Seed (-1=aleatorio)",
           "db_filename": "Nombre de archivo de BD (caché)",
           "match_punctuation": "Coincidir puntuación (requerir puntuación exacta al comparar preguntas)"
-        }
+           },
+            "include_datetime": "Incluir fecha/hora actual en el system prompt"
       }
     }
   },
@@ -35,7 +36,8 @@
           "seed": "Seed (-1=aleatorio)",
           "db_filename": "Nombre de archivo de BD (caché)",
           "match_punctuation": "Coincidir puntuación (requerir puntuación exacta al comparar preguntas)"
-        }
+           },
+            "include_datetime": "Incluir fecha/hora actual en el system prompt"
       }
     }
   }

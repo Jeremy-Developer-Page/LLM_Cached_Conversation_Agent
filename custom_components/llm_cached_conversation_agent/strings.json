@@ -15,7 +15,8 @@
             "min_p": "Min-p",
             "seed": "Seed (-1=random)",
             "db_filename": "DB filename (cache)",
-            "match_punctuation": "Match punctuation (require exact punctuation when matching questions)"
+            "match_punctuation": "Match punctuation (require exact punctuation when matching questions)",
+            "include_datetime": "Include current date/time in system prompt"
         }
       }
     }
@@ -34,7 +35,8 @@
             "min_p": "Min-p",
             "seed": "Seed (-1=random)",
             "db_filename": "DB filename (cache)",
-            "match_punctuation": "Match punctuation (require exact punctuation when matching questions)"
+            "match_punctuation": "Match punctuation (require exact punctuation when matching questions)",
+            "include_datetime": "Include current date/time in system prompt"
         }
       }
     }

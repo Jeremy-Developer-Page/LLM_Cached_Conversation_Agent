@@ -15,7 +15,8 @@
           "min_p": "Min-p",
           "seed": "Seed (-1=zufällig)",
           "db_filename": "DB-Dateiname (Cache)",
-          "match_punctuation": "Interpunktion beachten (exakte Satzzeichen beim Abgleich der Fragen erforderlich)"
+          "match_punctuation": "Interpunktion beachten (exakte Satzzeichen beim Abgleich der Fragen erforderlich)",
+          "include_datetime": "Aktuelles Datum/Uhrzeit im System-Prompt einfügen"
         }
       }
     }
@@ -34,7 +35,8 @@
           "min_p": "Min-p",
           "seed": "Seed (-1=zufällig)",
           "db_filename": "DB-Dateiname (Cache)",
-          "match_punctuation": "Interpunktion beachten (exakte Satzzeichen beim Abgleich der Fragen erforderlich)"
+          "match_punctuation": "Interpunktion beachten (exakte Satzzeichen beim Abgleich der Fragen erforderlich)",
+          "include_datetime": "Aktuelles Datum/Uhrzeit im System-Prompt einfügen"
         }
       }
     }

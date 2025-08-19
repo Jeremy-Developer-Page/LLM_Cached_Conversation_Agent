@@ -15,7 +15,8 @@
           "min_p": "Min-p",
           "seed": "Seed (-1=casuale)",
           "db_filename": "Nome file DB (cache)",
-          "match_punctuation": "Tieni conto della punteggiatura (richiede punteggiatura esatta per il confronto)"
+          "match_punctuation": "Tieni conto della punteggiatura (richiede punteggiatura esatta per il confronto)",
+          "include_datetime": "Includi data/ora correnti nel system prompt"
         }
       }
     }
@@ -34,7 +35,8 @@
           "min_p": "Min-p",
           "seed": "Seed (-1=casuale)",
           "db_filename": "Nome file DB (cache)",
-          "match_punctuation": "Tieni conto della punteggiatura (richiede punteggiatura esatta per il confronto)"
+          "match_punctuation": "Tieni conto della punteggiatura (richiede punteggiatura esatta per il confronto)",
+          "include_datetime": "Includi data/ora correnti nel system prompt"
         }
       }
     }

@@ -8,6 +8,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 from homeassistant.core import HomeAssistant
 from homeassistant.components.conversation.models import (
@@ -70,6 +71,7 @@ class LLMCachedAgent(AbstractConversationAgent):
         self._ollama_url: str = config.get("ollama_base_url", "http://127.0.0.1:11434")
         self._model: str = config.get("model", "llama3")
         self._system_prompt: str = config.get("system_prompt", "")
+        self._include_datetime: bool = bool(config.get("include_datetime", False))
         self._top_p: float = float(config.get("top_p", 0.9))
         self._top_k: int = int(config.get("top_k", 40))
         self._repeat_penalty: float = float(config.get("repeat_penalty", 1.1))
@@ -127,6 +129,7 @@ class LLMCachedAgent(AbstractConversationAgent):
         self._ollama_url = config.get("ollama_base_url", self._ollama_url)
         self._model = config.get("model", self._model)
         self._system_prompt = config.get("system_prompt", self._system_prompt)
+        self._include_datetime = bool(config.get("include_datetime", self._include_datetime))
         self._top_p = float(config.get("top_p", self._top_p))
         self._top_k = int(config.get("top_k", self._top_k))
         self._repeat_penalty = float(config.get("repeat_penalty", self._repeat_penalty))
@@ -439,14 +442,25 @@ class LLMCachedAgent(AbstractConversationAgent):
         import aiohttp  # type: ignore
 
         url = f"{self._ollama_url.rstrip('/')}/api/generate"
+        # Build system prompt (optionally include current date/time)
+        system_prompt = self._system_prompt or ""
+        if self._include_datetime:
+            try:
+                dt = self._current_datetime_string()
+                extra = f"Current date/time: {dt}"
+            except Exception:
+                extra = None
+            if extra:
+                system_prompt = (system_prompt + "\n\n" if system_prompt else "") + extra
+
         payload = {
             "model": self._model,
             "prompt": prompt,
             "stream": False,
         }
-        if self._system_prompt:
+        if system_prompt:
             # Ollama's generate API accepts a 'system' field to set a system prompt
-            payload["system"] = self._system_prompt
+            payload["system"] = system_prompt
         # Optional generation options
         options: dict[str, Any] = {}
         options["top_p"] = self._top_p
@@ -470,3 +484,18 @@ class LLMCachedAgent(AbstractConversationAgent):
                     return data.get("response")
         except Exception:
             return None
+
+    def _current_datetime_string(self) -> str:
+        """Return current date/time as ISO string with timezone info.
+
+        Preference is the Home Assistant configured timezone; fallback to UTC.
+        """
+        try:
+            tz_name = getattr(self.hass.config, "time_zone", None)
+            tz = ZoneInfo(tz_name) if tz_name else timezone.utc
+        except Exception:
+            tz = timezone.utc
+        now = datetime.now(tz).replace(microsecond=0)
+        # Example: 2025-08-19T14:22:05+02:00 (Europe/Rome)
+        tz_label = getattr(tz, "key", None) or getattr(tz, "tzname", lambda *_: "")(now) or "UTC"
+        return f"{now.isoformat()} ({tz_label})"

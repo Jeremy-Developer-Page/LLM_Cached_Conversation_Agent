@@ -15,7 +15,8 @@
           "min_p": "Min-p",
           "seed": "Seed (-1=losowy)",
           "db_filename": "Nazwa pliku bazy danych (cache)",
-          "match_punctuation": "Uwzględniaj interpunkcję (wymaga dokładnej interpunkcji przy dopasowywaniu pytań)"
+          "match_punctuation": "Uwzględniaj interpunkcję (wymaga dokładnej interpunkcji przy dopasowywaniu pytań)",
+          "include_datetime": "Dołącz aktualną datę/godzinę do system prompt"
         }
       }
     }
@@ -34,7 +35,8 @@
           "min_p": "Min-p",
           "seed": "Seed (-1=losowy)",
           "db_filename": "Nazwa pliku bazy danych (cache)",
-          "match_punctuation": "Uwzględniaj interpunkcję (wymaga dokładnej interpunkcji przy dopasowywaniu pytań)"
+          "match_punctuation": "Uwzględniaj interpunkcję (wymaga dokładnej interpunkcji przy dopasowywaniu pytań)",
+          "include_datetime": "Dołącz aktualną datę/godzinę do system prompt"
         }
       }
     }
